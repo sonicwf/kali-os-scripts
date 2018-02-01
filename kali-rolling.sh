@@ -54,8 +54,8 @@ fi
 
 ##### Location information
 keyboardApple=false         # Using a Apple/Macintosh keyboard (non VM)?                [ --osx ]
-keyboardLayout=""           # Set keyboard layout                                       [ --keyboard gb]
-timezone=""                 # Set timezone location                                     [ --timezone Europe/London ]
+keyboardLayout="de"           # Set keyboard layout                                       [ --keyboard gb]
+timezone="Europe/Berlin"                 # Set timezone location                                     [ --timezone Europe/London ]
 
 ##### Optional steps
 burpFree=false              # Disable configuring Burp Suite (for Burp Pro users...)    [ --burp ]
@@ -745,7 +745,7 @@ mkdir -p ~/.themes/
 timeout 300 curl --progress -k -L -f "https://dl.opendesktop.org/api/files/download/id/1461767736/90145-axiom.tar.gz" > /tmp/axiom.tar.gz \
   || echo -e ' '${RED}'[!]'${RESET}" Issue downloading axiom.tar.gz" 1>&2    #***!!! hardcoded path!
 tar -zxf /tmp/axiom.tar.gz -C ~/.themes/
-xfconf-query -n -c xsettings -p /Net/ThemeName -s "Bluebird"
+xfconf-query -n -c xsettings -p /Net/ThemeName -s "Blackbird"
 xfconf-query -n -c xsettings -p /Net/IconThemeName -s "Vibrancy-Kali-Dark"
 #--- Get new desktop wallpaper      (All are #***!!! hardcoded paths!)
 mkdir -p /usr/share/wallpapers/
@@ -1167,6 +1167,7 @@ sed -i 's/ZSH_THEME=.*/ZSH_THEME="mh"/' "${file}"   # Other themes: mh, jreese, 
 sed -i 's/plugins=(.*)/plugins=(git git-extras tmux dirhistory python pip)/' "${file}"
 #--- Set zsh as default shell (current user)
 #chsh -s "$(which zsh)"
+chsh -s "$(which bash)"
 
 
 ##### Install tmux - all users
